@@ -26,25 +26,28 @@ const MarkdownEditor = () => {
         setMarkdownText(e.target.value);
     };
 
-    return (
-        <div className="markdown-editor">
-            {/* Markdown Input */}
-            <textarea
-                className="textarea"
-                placeholder="Enter markdown here..."
-                value={markdownText}
-                onChange={handleChange}
-            />
+   return (
+  <div className="main">
+    {/* Markdown Input */}
+    <textarea
+      className="textarea"
+      placeholder="Enter markdown here..."
+      value={markdownText}
+      onChange={handleChange}
+    />
 
-            {/* Loading Indicator */}
-            {loading && <div className="loading">Loading preview...</div>}
+    {/* Loading Indicator */}
+    {loading && <div className="loading">Loading preview...</div>}
 
-            {/* Markdown Preview */}
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                {previewText}
-            </ReactMarkdown>
-        </div>
-    );
+    {/* Markdown Preview */}
+    <div className="preview">
+      <ReactMarkdown remarkPlugins={[remarkGfm]}>
+        {previewText}
+      </ReactMarkdown>
+    </div>
+  </div>
+);
+
 };
 
 export default MarkdownEditor;
